@@ -6,16 +6,16 @@ router.get('/signup', (req,res)=>{
 })
 
 router.post('/signup', (req,res)=>{
-    console.log('posting to sign up')
+    console.log('posting to sign up', req.body)
     res.redirect('/auth/login')
 })
 
 router.get('/login', (req,res)=>{
-    res.send("loginnnnn")
+    res.render('auth/login.ejs')
 })
 
 router.post('/login', (req, res)=>{
-    console.log('posting login')
+    console.log('posting login', req.body)
     res.redirect('/')
 })
 

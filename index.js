@@ -5,6 +5,8 @@ const ejsLayouts = require('express-ejs-layouts')
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+
+app.use(express.urlencoded({extended:false}))
 app.get('/', (req,res)=>{
     res.render('index.ejs')
 })
