@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const passport = require('../config/ppConfig.js')
+
 
 router.get('/signup', (req,res)=>{
     res.render('auth/signup')
@@ -19,12 +21,19 @@ router.post('/signup', (req,res)=>{
     .then(([createdUser, wasCreated])=>{
         if(wasCreated){
             console.log('just created user', createdUser)
-        } esle {
-            console.log('already exists')
+            passport.authenticate('local', {
+                successRedirect: '/',
+                successFlash: 'Account successfully created and logged in'
+            })(req,res) //IIFE = immediately invoked function
+        } else {
+            req.flash('error', 'email has already been used to create an account, try logging in')
+            res.redirect('/auth/login')
         }
-        res.redirect('/auth/login')
+        //res.redirect('/auth/login')
     })
-
+    .catch((error)=>{
+        console.log('OOOO noooo', error)
+    })
     
 })
 
@@ -32,8 +41,16 @@ router.get('/login', (req,res)=>{
     res.render('auth/login.ejs')
 })
 
-router.post('/login', (req, res)=>{
-    console.log('posting login', req.body)
+router.post('/login', passport.authenticate('local', {
+    failureRedirect: '/auth/login',
+    successRedirect: '/',
+    failureFlash: 'invalid email or password',
+    successFlash: 'you are now logged in'
+}))
+
+router.get('/logout', (req,res)=>{
+    req.logout()
+    req.flash('success', 'successfully logged out')
     res.redirect('/')
 })
 
