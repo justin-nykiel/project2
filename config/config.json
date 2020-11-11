@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "exp_auth_dev",
+    "database": "project2_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "exp_auth_test",
+    "database": "project2_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "exp_auth_production",
+    "database": "project2_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

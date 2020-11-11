@@ -7,20 +7,25 @@
 </head>
 <body>
     <header>
-        <h1>818 EXPRESS AUTH</h1>
+        <h1>What's Nextflix?</h1>
+        <p>The app designed to help you fill the void</p>
         <nav>
             <ul>
                 <% if (!currentUser){%>
                     <li><a href="/auth/signup">Sign Up</a></li>
                     <li><a href="/auth/login">login</a></li>
+                    
                 <% }else{ %> 
                     <li><a href="/auth/logout">Logout</a></li>
                     <li><a href="/profile">Profile</a></li>
+                    <li><a href="/watchedlist">Watch List</a></li>
                 <%}%>
             </ul>
         </nav>
     </header>
     <%- include('partials/alerts.ejs')%>
+    
+    
     <%- body %>
 </body>
 </html>
