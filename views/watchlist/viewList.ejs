@@ -1,0 +1,15 @@
+<%- include('../home.ejs')%>
+<ul>
+    <%for(thing of results){%>
+        
+        <li><%= thing.title%></li>
+        <img src=<%=thing.img%> alt=<%=thing.title%>>
+        <p><%= thing.synopsis%></p>
+        <ul>
+            <li>Type: <%= thing.vtype%></li>
+            <li>Year: <%= thing.year%></li>
+            <li>IMDB Rating: <%= thing.imdbrating%></li>
+            <!-- nextflix user reviews -->
+        </ul>
+    <%}%>
+</ul>

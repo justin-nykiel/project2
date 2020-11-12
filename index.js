@@ -5,6 +5,7 @@ const session = require('express-session')
 const passport = require(__dirname+'/config/ppConfig.js')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
+const db = require('./models')
 require('dotenv').config()
 
 app.set('view engine', 'ejs')
@@ -49,14 +50,12 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 })
 
 
-var unirest = require("unirest");
 
-var request = unirest("GET", "https://unogsng.p.rapidapi.com/search");
 
 const axios = require("axios").default;
 
 app.get('/search', (req,res)=>{
-   console.log(req.query.searchTerm)
+   
     
     const options = {
     method: 'GET',
@@ -82,14 +81,42 @@ app.get('/search', (req,res)=>{
         console.error(error);
     });
     
-    //path when something is added too watched list
-    app.post('/watchlist/new', (req,res)=>{
-        console.log(req.body.title)
-    })
 
-    //path to view the watched list
-    app.get('/watchlist', (req,res)=>{
-        
+})
+//path when something is added too watched list
+app.post('/watchlist/new', isLoggedIn, (req,res)=>{
+    console.log(req.user.dataValues.id)
+    db.user.findOne({
+        where: {id: req.user.dataValues.id}
+    })
+    .then((user)=>{
+        db.show.findOrCreate({
+            where: {
+                title: req.body.title,
+                nfid: req.body.nfid,
+                img: req.body.img,
+                imdbrating: req.body.imdbrating,
+                year: req.body.year,
+                vtype: req.body.vtype,
+                synopsis: req.body.synopsis
+            }
+        }).then(([show, created])=>{
+            user.addShow(show)
+            res.redirect('/watchlist')
+        })
+    })
+})
+
+ //path to view the watched list
+ app.get('/watchlist', (req,res)=>{
+    db.user.findOne({
+        where: {id: req.user.dataValues.id}
+    })
+    .then((user)=>{
+        user.getShows()
+        .then((shows)=>{
+            res.render('./watchlist/viewList.ejs', {results: shows})
+        })
     })
 })
 
