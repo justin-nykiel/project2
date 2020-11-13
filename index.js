@@ -83,42 +83,9 @@ app.get('/search', (req,res)=>{
     
 
 })
-//path when something is added too watched list
-app.post('/watchlist/new', isLoggedIn, (req,res)=>{
-    console.log(req.user.dataValues.id)
-    db.user.findOne({
-        where: {id: req.user.dataValues.id}
-    })
-    .then((user)=>{
-        db.show.findOrCreate({
-            where: {
-                title: req.body.title,
-                nfid: req.body.nfid,
-                img: req.body.img,
-                imdbrating: req.body.imdbrating,
-                year: req.body.year,
-                vtype: req.body.vtype,
-                synopsis: req.body.synopsis
-            }
-        }).then(([show, created])=>{
-            user.addShow(show)
-            res.redirect('/watchlist')
-        })
-    })
-})
 
- //path to view the watched list
- app.get('/watchlist', (req,res)=>{
-    db.user.findOne({
-        where: {id: req.user.dataValues.id}
-    })
-    .then((user)=>{
-        user.getShows()
-        .then((shows)=>{
-            res.render('./watchlist/viewList.ejs', {results: shows})
-        })
-    })
-})
+app.use('/watchlist', require('./controllers/watchlist'))
+
 
 app.listen(process.env.PORT)
 

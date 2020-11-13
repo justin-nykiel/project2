@@ -11,5 +11,14 @@
             <li>IMDB Rating: <%= thing.imdbrating%></li>
             <!-- nextflix user reviews -->
         </ul>
+        <form action="/watchlist/review" method="GET">
+            <input type="hidden" name="title" value='<%= thing.title%>'>
+            <input type="hidden" name="img" value='<%=thing.img%>'>
+            <input type="hidden" name="synopsis" value='<%= thing.synopsis%>'>
+            <input type="hidden" name="vtype" value='<%=thing.vtype%>'>
+            <input type="hidden" name="year" value='<%=thing.year%>'>
+            <input type="hidden" name="imdbrating" value='<%=thing.imdbrating%>'>
+            <input type="submit" value="Review it">
+        </form>
     <%}%>
 </ul>

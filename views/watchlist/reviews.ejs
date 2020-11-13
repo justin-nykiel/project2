@@ -1,0 +1,18 @@
+<h1>Reviews</h1>
+
+<ul>
+    <%for(eachReview of review){%>
+        
+        <li><%= eachReview.show.title%></li>
+        <img src=<%=eachReview.show.img%> alt=<%=eachReview.show.title%>>
+        
+        <ul>
+            <li>Your Rating: <%= eachReview.rating%></li>
+            <li>BingeWorthy: <%= eachReview.bingeworthy%></li>
+            <li>Review: <%= eachReview.review%></li>
+            <!-- nextflix user reviews -->
+        </ul>
+        
+        
+    <%}%>
+</ul>
