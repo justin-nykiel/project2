@@ -7,12 +7,13 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const db = require('./models')
 require('dotenv').config()
+const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(methodOverride('_method'))
 
-
-
+app.use(express.static(__dirname + '/public/'))
 
 //body parser
 app.use(express.urlencoded({extended:false}))
@@ -76,8 +77,11 @@ app.get('/search', (req,res)=>{
 
     axios.request(options).then(function (response) {
         let results = response.data.results;
+        return results
+    }).then(results=>{
         res.render('results', {results})
-    }).catch(function (error) {
+    })
+    .catch(function (error) {
         console.error(error);
     });
     

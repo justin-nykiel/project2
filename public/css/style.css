@@ -1,0 +1,31 @@
+body {
+  background-color: rgb(80, 76, 76);
+  color: white;
+}
+nav ul {
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+}
+nav ul li {
+  display: inline-block;
+}
+
+nav{
+
+}
+h1{
+  color: #E50916;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+}
+a:visited {
+  color: white;
+}
+
+a:hover{
+  font-size: larger;
+}

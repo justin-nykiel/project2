@@ -1,4 +1,5 @@
 <%- include('home.ejs')%>
+<% if(results !== undefined){%>
 <ul>
     <%for(thing of results){%>
         
@@ -8,6 +9,9 @@
         <ul>
             <li>Type: <%= thing.vtype%></li>
             <li>Year: <%= thing.year%></li>
+            <% if(!thing.imdbrating){%>
+                <% thing.imdbrating = "No Rating Available" %>
+           <%  } %>
             <li>IMDB Rating: <%= thing.imdbrating%></li>
             <!-- nextflix user reviews -->
         </ul>
@@ -22,3 +26,6 @@
         
     <%}%>
 </ul>
+<%}else{%>
+    <p>No Results Found</p>
+<%}%>

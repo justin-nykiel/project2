@@ -12,7 +12,10 @@
             <li>Review: <%= eachReview.review%></li>
             <!-- nextflix user reviews -->
         </ul>
-        
+        <form action="/watchlist/review/edit/<%= eachReview.id%>" method="GET">
+            <input type="hidden" name="title" value='<%= eachReview.show.title%>'>
+            <input type="submit" value="Edit/Remove Review">
+        </form>
         
     <%}%>
 </ul>
