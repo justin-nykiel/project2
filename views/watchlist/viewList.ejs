@@ -1,25 +1,28 @@
-
+<h2>Watch List:</h2>
 <ul>
     <%for(thing of results){%>
+        <div class="show">
+            <% thing.title = thing.title.replace(/&#39;/g, "'")%>
+            <% thing.synopsis = thing.synopsis.replace(/&#39;/g, "'")%>
+            <li><%= thing.title%></li>
+            <img src=<%=thing.img%> alt=<%=thing.title%>>
+            <p><%= thing.synopsis%></p>
+            <ul>
+                <li>Type: <%= thing.vtype%></li>
+                <li>Year: <%= thing.year%></li>
+                <% if(!thing.imdbrating){%>
+                    <% thing.imdbrating = "No Rating Available" %>
+            <%  } %>
+                <li>IMDB Rating: <%= thing.imdbrating%></li>
+                <!-- nextflix user reviews -->
+            </ul>
+            <form action="/watchlist/review/<%= thing.id%>" method="GET">
         
-        <li><%= thing.title%></li>
-        <img src=<%=thing.img%> alt=<%=thing.title%>>
-        <p><%= thing.synopsis%></p>
-        <ul>
-            <li>Type: <%= thing.vtype%></li>
-            <li>Year: <%= thing.year%></li>
-            <% if(!thing.imdbrating){%>
-                <% thing.imdbrating = "No Rating Available" %>
-           <%  } %>
-            <li>IMDB Rating: <%= thing.imdbrating%></li>
-            <!-- nextflix user reviews -->
-        </ul>
-        <form action="/watchlist/review/<%= thing.id%>" method="GET">
-     
-            <input type="submit" value="Review it">
-        </form>
-        <form action="/watchlist/<%= thing.id%>/?_method=DELETE" method="POST">
-            <input type="submit" value="Delete From Watchlist">
-        </form>
+                <input type="submit" value="Review it">
+            </form>
+            <form action="/watchlist/<%= thing.id%>/?_method=DELETE" method="POST">
+                <input type="submit" value="Delete From Watchlist">
+            </form>
+        </div>
     <%}%>
 </ul>

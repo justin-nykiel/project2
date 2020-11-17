@@ -1,20 +1,30 @@
 body {
   background-color: rgb(80, 76, 76);
   color: white;
+  font-family: helvetica;
+  margin: 0;
 }
-nav ul {
-  display: flex;
-  width: 50vw;
-  justify-content: space-between;
-}
-nav ul li {
-  display: inline-block;
+
+nav a{
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 20px;
 }
 
 nav{
-
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: black; 
+  z-index: 100;
 }
-h1{
+header{
+  position: relative;
+  top: 50px;
+}
+
+h1, h2{
   color: #E50916;
 }
 
@@ -25,7 +35,114 @@ a {
 a:visited {
   color: white;
 }
-
 a:hover{
-  font-size: larger;
+  color: gray;
+  background-color: white;
+}
+
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+  
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  color:black;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+
+
+main{
+  margin-top: 50px;
+  padding: 10px;
+ 
+}
+.searchBox{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+.textbox {
+  display: inline-block;
+}
+
+h1, p{
+  padding: 10px;
+}
+ul {
+  list-style-type: none;
+}
+.show{
+  border: 1px solid white;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 10px;
+  width: 30vw;
+  background-color: lightgray;
+  color: black;
+  
+}
+.show ul {
+  display: flex;
+  flex-direction: column;
+}
+img{
+  max-width: 50%;
+}
+main ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 600px) {
+  .show{
+    width: 80vw;
+  }
 }

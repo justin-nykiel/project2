@@ -83,7 +83,7 @@ router.post('/reviews/new', isLoggedIn, (req,res)=>{
             console.log(show.id)
             user.createReview({
                 rating: req.body.rating,
-                bingeworthy: req.body.bingeWorthy,
+                bingeworthy: req.body.bingeWorthy || false,
                 review: req.body.review,
                 showId: show.id
             })
@@ -139,6 +139,7 @@ router.get('/review/edit/:id', isLoggedIn, (req,res)=>{
 })
 //update route
 router.put('/review/:reviewId', (req,res)=>{
+    
     db.user.findOne({
         where: {id: req.user.dataValues.id}
     })
@@ -151,7 +152,7 @@ router.put('/review/:reviewId', (req,res)=>{
         .then(show=>{
             db.review.update({
                 rating: req.body.rating,
-                bingeworthy: req.body.bingeWorthy,
+                bingeworthy: req.body.bingeWorthy || false,
                 review: req.body.review
             },{
                 where: {

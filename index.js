@@ -45,6 +45,7 @@ app.use('/auth', require('./controllers/auth'))
 
 app.get('/', (req, res)=>{
     res.render('home')
+    
 })
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
@@ -55,14 +56,11 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 
 const axios = require("axios").default;
 
-app.get('/search', (req,res)=>{
-   
-    
+app.get('/search/title', (req,res)=>{
     const options = {
     method: 'GET',
     url: 'https://unogsng.p.rapidapi.com/search',
     params: {
-        limit: '1',
         query :req.query.searchTerm,
         limit : "10",
         countrylist : "78, 46",
@@ -73,8 +71,6 @@ app.get('/search', (req,res)=>{
         'x-rapidapi-host': 'unogsng.p.rapidapi.com'
     }
     };
-
-
     axios.request(options).then(function (response) {
         let results = response.data.results;
         return results
@@ -84,6 +80,68 @@ app.get('/search', (req,res)=>{
     .catch(function (error) {
         console.error(error);
     });
+    
+
+})
+
+app.get('/search/genre', (req,res)=>{
+   
+    let options = {
+        method: 'GET',
+        url: 'https://unogsng.p.rapidapi.com/genres',
+        headers: {
+            'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
+            'x-rapidapi-host': 'unogsng.p.rapidapi.com'
+        }
+    };
+        
+        
+    axios.request(options)
+    .then(function (response) {
+       let genreId = 0
+        response.data.results.forEach(genre =>{
+            if(genre.genre == req.query.genre){
+                genreId = genre.netflixid
+            }
+        })
+        console.log(genreId)
+        return genreId
+    })
+    .then((genreId)=>{
+        let optionsId = {
+        method: 'GET',
+        url: 'https://unogsng.p.rapidapi.com/search',
+        params: {
+            genrelist: genreId,
+            limit : "10",
+            countrylist : "78, 46",
+            orderby : "rating"
+        },
+        headers: {
+            'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
+            'x-rapidapi-host': 'unogsng.p.rapidapi.com'
+        }
+        };
+
+
+        axios.request(optionsId).then(function (response) {
+            let results = response.data.results;
+            return results
+        }).then(results=>{
+            res.render('results', {results})
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+    })
+    .catch(function (error) {
+        console.error(error);
+    })
+    
+
+   
+        
+       
     
 
 })

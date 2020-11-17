@@ -9,26 +9,28 @@
 <body>
     <header>
         <h1>What's Nextflix?</h1>
+        <%- include('partials/alerts.ejs')%>
         <p>The app designed to help you fill the void</p>
         <nav>
-            <ul>
+            
                 <% if (!currentUser){%>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/auth/login">Login</a></li>
-                    <li><a href="/auth/signup">Sign Up</a></li>
+                    <a href="/">Home</a>
+                    <a href="/auth/login">Login</a>
+                    <a href="/auth/signup">Sign Up</a>
                 <% }else{ %> 
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/watchlist">Watch List</a></li>
-                    <li><a href="/watchlist/reviews">Watched List</a></li>
-                    <li><a href="/auth/logout">Logout</a></li>
+                    <a href="/">Home</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/watchlist">Watch List</a>
+                    <a href="/watchlist/reviews">Watched List</a>
+                    <a href="/auth/logout">Logout</a>
                 <%}%>
-            </ul>
         </nav>
     </header>
-    <%- include('partials/alerts.ejs')%>
-    
-    
-    <%- body %>
+    <main>
+        
+        <%- body %>
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

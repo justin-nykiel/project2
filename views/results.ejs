@@ -2,28 +2,30 @@
 <% if(results !== undefined){%>
 <ul>
     <%for(thing of results){%>
-        
-        <li><%= thing.title%></li>
-        <img src=<%=thing.img%> alt=<%=thing.title%>>
-        <p><%= thing.synopsis%></p>
-        <ul>
-            <li>Type: <%= thing.vtype%></li>
-            <li>Year: <%= thing.year%></li>
-            <% if(!thing.imdbrating){%>
-                <% thing.imdbrating = "No Rating Available" %>
-           <%  } %>
-            <li>IMDB Rating: <%= thing.imdbrating%></li>
-            <!-- nextflix user reviews -->
-        </ul>
-        <% let keys = Object.keys(thing)%>
-        <% let values = Object.values(thing)%>
-        <form action="/watchlist/new" method="POST">
-            <%for(let i = 0; i < keys.length; i++){%>
-                <input type="hidden" name=<%=keys[i]%> value='<%=values[i]%>'>
-            <%}%>
-            <input type="submit" value="Watchlist it">
-        </form>
-        
+        <div class="show">
+            <% thing.title = thing.title.replace(/&#39;/g, "'")%>
+            <% thing.synopsis = thing.synopsis.replace(/&#39;/g, "'")%>
+            <li><%= thing.title%></li>
+            <img src=<%=thing.img%> alt=<%=thing.title%>>
+            <p><%= thing.synopsis%></p>
+            <ul>
+                <li>Type: <%= thing.vtype%></li>
+                <li>Year: <%= thing.year%></li>
+                <% if(!thing.imdbrating){%>
+                    <% thing.imdbrating = "No Rating Available" %>
+            <%  } %>
+                <li>IMDB Rating: <%= thing.imdbrating%></li>
+            
+            </ul>
+            <% let keys = Object.keys(thing)%>
+            <% let values = Object.values(thing)%>
+            <form action="/watchlist/new" method="POST">
+                <%for(let i = 0; i < keys.length; i++){%>
+                    <input type="hidden" name=<%=keys[i]%> value='<%=values[i]%>'>
+                <%}%>
+                <input type="submit" value="Watchlist it">
+            </form>
+        </div>
     <%}%>
 </ul>
 <%}else{%>
