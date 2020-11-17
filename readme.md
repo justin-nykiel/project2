@@ -1,13 +1,16 @@
-npm i express ejs express-ejs-layouts
-require express
-require layouts
-app.set('view engine', 'ejs')
-app.use(ejsLayouts)
-set controllers
-router = express.Router()
-include middleware for body parser
-app.use(express.urlencoded({extended:false}))
+# What's Nextflix?
 
+What's Nextflix is an app created to help users search for new content they can watch on Netflix. Users are able to search for content based on title or one of over 500 genres available using the unogsNG API. 
+
+## Technologies Used
+
+This is a full stack application built using node/express and a variety of packages. A variety of packages including session and passport were used to authenticate and authorize users for use. Axios is used to make front- and back-end API calls in order the access the unosNG API and fetch Netflix data. 
+
+## Approach
+
+Before beginng the application, it was planned using an entity relational diagram to map out the datastructure. The overall look was planned using wireframing. 
+
+## Installation Instructions
 
 How to set up:
 1. fork & clone
@@ -43,9 +46,7 @@ npm i
 ```
 sequelize db:create <insert db name here>
 ```
-5. Migrate the `user` model 
+5. Migrate the `user`, `show` and `review` model 
 ```
 sequelize db:migrate
 ```
-
-6. Add a `SESSION_SECRET` enironment variable in a `.env` file
