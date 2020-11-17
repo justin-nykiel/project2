@@ -107,7 +107,7 @@ main{
 .searchBox{
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  
   padding: 5px;
 }
 .textbox {
@@ -141,8 +141,21 @@ main ul{
   display: flex;
   flex-wrap: wrap;
 }
+form{
+  margin: 5px;
+}
 @media only screen and (max-width: 600px) {
   .show{
     width: 80vw;
   }
+}
+nav h3{
+  position: fixed;
+  top: 0;
+  right: 5px;
+  display: block;
+  float: right;
+  color: #E50916;
+  font-size: 50px;
+  margin: 0;
 }
