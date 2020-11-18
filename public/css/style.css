@@ -120,7 +120,7 @@ h1, p{
 ul {
   list-style-type: none;
 }
-.show{
+.show, .login{
   border: 1px solid white;
   margin: 5px;
   border-radius: 3px;
@@ -158,4 +158,30 @@ nav h3{
   color: #E50916;
   font-size: 50px;
   margin: 0;
+}
+.login{
+  width: 40vw;
+  position: relative;
+  left: 50vw;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.loginInput{
+  display: block;
+  
+}
+
+.showEdit {
+  border: 1px solid white;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 10px;
+  width: 30vw;
+  background-color: lightgray;
+  color: black;
+  position: relative;
+  left: 50vw;
+  transform: translateX(-50%);
 }

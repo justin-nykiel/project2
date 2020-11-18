@@ -67,7 +67,7 @@ app.get('/search/title', (req,res)=>{
         orderby : "rating"
     },
     headers: {
-        'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
+        'x-rapidapi-key': process.env.KEY,
         'x-rapidapi-host': 'unogsng.p.rapidapi.com'
     }
     };
@@ -90,7 +90,7 @@ app.get('/search/genre', (req,res)=>{
         method: 'GET',
         url: 'https://unogsng.p.rapidapi.com/genres',
         headers: {
-            'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
+            'x-rapidapi-key': process.env.KEY,
             'x-rapidapi-host': 'unogsng.p.rapidapi.com'
         }
     };
@@ -118,7 +118,7 @@ app.get('/search/genre', (req,res)=>{
             orderby : "rating"
         },
         headers: {
-            'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
+            'x-rapidapi-key': process.env.KEY,
             'x-rapidapi-host': 'unogsng.p.rapidapi.com'
         }
         };
