@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 if(document.querySelector('#genreInput')){
     function autocomplete(inp, arr) {
         /*the autocomplete function takes two arguments,
@@ -103,7 +103,7 @@ if(document.querySelector('#genreInput')){
     method: 'GET',
     url: 'https://unogsng.p.rapidapi.com/genres',
     headers: {
-        'x-rapidapi-key': process.env.KEY,
+        'x-rapidapi-key': 'b539ce6886msha8efc0821f59136p1adb65jsn88965d892229',
         'x-rapidapi-host': 'unogsng.p.rapidapi.com'
     }
     };
