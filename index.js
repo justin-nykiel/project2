@@ -149,5 +149,5 @@ app.get('/search/genre', (req,res)=>{
 app.use('/watchlist', require('./controllers/watchlist'))
 
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 8000)
 

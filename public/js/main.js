@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 if(document.querySelector('#genreInput')){
     function autocomplete(inp, arr) {
         /*the autocomplete function takes two arguments,
