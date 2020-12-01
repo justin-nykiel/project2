@@ -51,7 +51,22 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
-
+app.get('/genres', (req, res)=>{
+    let options = {
+            method: 'GET',
+            url: 'https://unogsng.p.rapidapi.com/genres',
+            headers: {
+                'x-rapidapi-key': process.env.KEY,
+                'x-rapidapi-host': 'unogsng.p.rapidapi.com'
+            }
+            };
+        
+        
+            axios.request(options)
+            .then(function (response) {
+               res.send(response.data)
+            })
+})
 
 
 const axios = require("axios").default;

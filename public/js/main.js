@@ -100,25 +100,21 @@ if(document.querySelector('#genreInput')){
     //MAKE A CLIENT SIDE HTTP REQUEST FOR GENRES ARRAY
 
     let options = {
-    method: 'GET',
-    url: 'https://unogsng.p.rapidapi.com/genres',
-    headers: {
-        'x-rapidapi-key': process.env.KEY,
-        'x-rapidapi-host': 'unogsng.p.rapidapi.com'
-    }
-    };
-
-
-    axios.request(options)
-    .then(function (response) {
-        let genres = []
-        response.data.results.forEach(genre =>{
-            genres.push(genre.genre)
+        method: 'GET',
+        url: '/genres'
+        };
+    
+    
+        axios.request(options)
+        .then(function (response) {
+            let genres = []
+            response.data.results.forEach(genre =>{
+                genres.push(genre.genre)
+            })
+            autocomplete(document.getElementById("genreInput"), genres)
+        }).catch(function (error) {
+            console.error(error);
         })
-        autocomplete(document.getElementById("genreInput"), genres)
-    }).catch(function (error) {
-        console.error(error);
-    })
 }
 
 let binge = document.querySelectorAll(".binge")
