@@ -109,7 +109,9 @@ if(document.querySelector('#genreInput')){
         .then(function (response) {
             let genres = []
             response.data.results.forEach(genre =>{
-                genres.push(genre.genre)
+                if(!genre.genre.includes("\\")){
+                    genres.push(genre.genre)
+                }
             })
             autocomplete(document.getElementById("genreInput"), genres)
         }).catch(function (error) {
