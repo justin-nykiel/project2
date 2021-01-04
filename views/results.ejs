@@ -1,6 +1,6 @@
 <%- include('home.ejs')%>
 <% if(results !== undefined){%>
-<ul>
+<ul class="listOfShows">
     <%for(thing of results){%>
         <div class="show">
             <% thing.title = thing.title.replace(/&#39;/g, "'")%>
