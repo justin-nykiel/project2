@@ -11,8 +11,7 @@ https://whatsnextflix.herokuapp.com/
 * Node/Express
 * PostgreSQL
 
-This is a full stack application built using node/express and a variety of packages. Packages including session and passport were used to authenticate and authorize users for use. Axios was used in order the access the unosNG API and fetch Netflix data to be displayed to users. The web application use RESTful routing in order to execute it's needed CRUD actions.
-
+This is a full stack application built using node/express and a variety of packages. Packages including session and passport were used to authenticate and authorize users for use. Axios was used in order the access the unosNG API and fetch Netflix data to be displayed to users. Data is managed using PostgreSQL and CRUD cycles, and routes adhere to a RESTful architecture.
 
 ## Approach
 
