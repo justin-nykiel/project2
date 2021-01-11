@@ -42,11 +42,24 @@ router.get('/', (req,res)=>{
         })
         .then((shows)=>{
             //only grab unreviewed shows to display on watch list
+            
             let unwatched = []
             for(show of shows){
+                
                 if(show.reviews[0] == undefined){
                     unwatched.push(show)
+                } else {
+                    for(let i = 0; i < show.reviews.length; i++){
+                        let counter = 0
+                        if(show.reviews[i].userId != user.id){
+                            counter++
+                        } 
+                        if(counter == show.reviews.length){
+                            unwatched.push(show)
+                        }
+                    }
                 }
+                
             }
             
             res.render('./watchlist/viewList.ejs', {results: unwatched})

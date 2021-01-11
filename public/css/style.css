@@ -23,9 +23,20 @@ header{
   position: relative;
   top: 50px;
 }
-
-h1, h2{
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+h1{
   color: #E50916;
+  text-align: center;
+}
+h2{
+  color: black;
+  text-align: center;
+  font-size: 36px;
 }
 
 a {
@@ -67,6 +78,7 @@ input[type=text] {
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
+  
 }
 .autocomplete-items {
   position: absolute;
@@ -92,26 +104,36 @@ input[type=submit] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+.delete input{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 
 
 main{
   margin-top: 50px;
   padding: 10px;
- 
+  display: flex;
+  justify-content: space-around;
 }
 .searchBox{
   display: flex;
-  width: 100%;
-  
+  justify-content: space-around;
   padding: 5px;
+  width: 100%;
 }
+.searchBox div{
+  width: 50%;
+}
+
 .textbox {
   display: inline-block;
 }
 
-h1, p{
-  padding: 10px;
+p{
+  padding-bottom: 10px;
 }
 ul {
   list-style-type: none;
@@ -131,15 +153,16 @@ ul {
   flex-direction: column;
 }
 img{
+  display: block;
   max-width: 50%;
+  margin-right: auto;
+  margin-left: auto;
 }
 .listOfShows{
   display: flex;
   flex-wrap: wrap;
 }
-form{
-  margin: 5px;
-}
+
 @media only screen and (max-width: 600px) {
   .show{
     width: 80vw;
@@ -158,11 +181,11 @@ nav h3{
 .login{
   width: 40vw;
   position: relative;
-  left: 50vw;
-  transform: translateX(-50%);
+  margin-right: auto;
+  margin-left:auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 .loginInput{
   display: block;
@@ -178,8 +201,8 @@ nav h3{
   background-color: lightgray;
   color: black;
   position: relative;
-  left: 50vw;
-  transform: translateX(-50%);
+  margin-right: auto;
+  margin-left: auto;
 }
 label {
   display: block;
@@ -190,10 +213,19 @@ label {
 .signUpBtn {
   display: block;
 }
-.description {
-  width: 33vw;
-  position: absolute;
-  top: 40px;
-  right: 20px;
+.description{
+  display: inline-block;
+}
+.views{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bigTitle{
+  font-size: 60px;
+  padding: 5px;
+}
+.views h2{
+  text-align: center;
 }
 

@@ -8,10 +8,12 @@
 </head>
 <body>
     <header>
-        <h1>What's Nextflix?</h1>
-        <%- include('partials/alerts.ejs')%>
-        <p>The app designed to help you fill the void</p>
-        <p class="description">Search Netflix content by title or by one of over 500 genres, add to your list to be watched. Once watched review content to add to your Watched List.</p>
+        <div class="header">
+            <h1 class="bigTitle">What's Nextflix?</h1>
+            <%- include('partials/alerts.ejs')%>
+            <p>The app designed to help you fill the void</p>
+            <p class="description">Search Netflix content by title or by one of over 500 genres, add to your list to be watched. Once watched review content to add to your Watched List.</p>
+        </div>
         <nav>
             
                 <% if (!currentUser){%>
@@ -29,8 +31,9 @@
         </nav>
     </header>
     <main>
-        
-        <%- body %>
+        <div class="views">
+            <%- body %>
+        </div>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/main.js"></script>
