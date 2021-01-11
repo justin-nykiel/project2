@@ -2,14 +2,16 @@
 
 What's Nextflix is an app created to help users search for new content they can watch on Netflix. Users are able to search for content based on title or one of over 500 genres available using the unogsNG API. 
 
+https://whatsnextflix.herokuapp.com/
+
 ## Technologies Used
 * HTML
 * CSS
 * Javascript
 * Node/Express
+* PostgreSQL
 
-This is a full stack application built using node/express and a variety of packages. Packages including session and passport were used to authenticate and authorize users for use. Axios was used to make front- and back-end API calls in order the access the unosNG API and fetch Netflix data. 
-
+This is a full stack application built using node/express and a variety of packages. Packages including session and passport were used to authenticate and authorize users for use. Axios was used in order the access the unosNG API and fetch Netflix data to be displayed to users. Data is managed using PostgreSQL and CRUD cycles, and routes adhere to a RESTful architecture.
 
 ## Approach
 
