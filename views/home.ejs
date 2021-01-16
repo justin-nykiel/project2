@@ -1,20 +1,24 @@
 <div class="searchBox">
-    <div>
+    <div class="formBox">
         <form method='GET' action='/search/title'>
-                <label for='searchTerm'>Search by Title:</label>
-                <div class="textbox">
-                    <input type='text' id='searchTearm' name='searchTerm' >
+                <div class="col s12">
+                    <div class="input-field inline">
+                      <input id="searchTerm" type="text" name="searchTerm">
+                      <label for="searchTerm">Search By Title</label>
+                    </div>
                 </div>
-                <input type='submit' value="Search by Title">
+                <input type='submit' value="Search">
         </form>
     </div>
-    <div>
+    <div class="formBox">
         <form method='GET' action='/search/genre' autocomplete="off">
-            <label for='genreInput'>Search by Genre:</label>
-            <div class="autocomplete">
-                <input id="genreInput" type="text" name="genre" >
+            <div class="col s12">
+                <div class="autocomplete input-field inline">
+                    <input id="genreInput" type="text" name="genre" >
+                    <label for='genreInput'>Search by Genre</label>
+                </div>
             </div>
-            <input type='submit' value="Search By Genre">
+            <input type='submit' value="Search">
         </form>
     </div>
 </div>

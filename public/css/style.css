@@ -1,7 +1,6 @@
 body {
-  background-color: rgb(80, 76, 76);
-  color: white;
-  font-family: helvetica;
+  background-color: rgb(232, 226, 226);
+  font-family: sans-serif;
   margin: 0;
 }
 
@@ -78,7 +77,8 @@ input[type=text] {
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
-  
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 .autocomplete-items {
   position: absolute;
@@ -96,6 +96,7 @@ input[type=submit] {
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
+  width: 100%;
 }
 .autocomplete-items div:hover {
   background-color: #e9e9e9;
@@ -114,22 +115,22 @@ input[type=submit] {
 
 main{
   margin-top: 50px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
+  
 }
 .searchBox{
   display: flex;
   justify-content: space-around;
   padding: 5px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
-.searchBox div{
-  width: 50%;
+.formBox{
+  width: 40%;
 }
 
 .textbox {
   display: inline-block;
+
 }
 
 p{
@@ -179,18 +180,16 @@ nav h3{
   margin: 0;
 }
 .login{
-  width: 40vw;
+  width: 80vw;
   position: relative;
   margin-right: auto;
   margin-left:auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 }
-.loginInput{
-  display: block;
-  
-}
+
 
 .showEdit {
   border: 1px solid white;
@@ -219,7 +218,6 @@ label {
 .views{
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .bigTitle{
   font-size: 60px;
@@ -228,4 +226,26 @@ label {
 .views h2{
   text-align: center;
 }
-
+.card-title {
+  background-color: rgba(229, 9, 22, 0.6);
+  border-top-right-radius: 3px;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.row .col.s12.m6{
+  max-width: 360px;
+  min-width: 360px;
+  margin: auto;
+  min-height: 520px;
+}
+.card {
+  min-height: 520px;
+}
+.input-field.inline{
+  width: 100%;
+  min-width: 130px;
+}
