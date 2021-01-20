@@ -6,6 +6,7 @@
     <title>WN</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,29 +17,48 @@
             <p class="description">Search Netflix content by title or by one of over 500 genres, add to your list to be watched. Once watched review content to add to your Watched List.</p>
         </div>
         <nav>
-            
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo right">WN</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="left hide-on-med-and-down">
                 <% if (!currentUser){%>
-                    <a href="/">Home</a>
-                    <a href="/auth/login">Login</a>
-                    <a href="/auth/signup">Sign Up</a>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/auth/login">Login</a></li>
+                    <li><a href="/auth/signup">Sign Up</a></li>
                 <% }else{ %> 
-                    <a href="/">Home</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/watchlist">Watch List</a>
-                    <a href="/watchlist/reviews">Watched List</a>
-                    <a href="/auth/logout">Logout</a>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/watchlist">Watch List</a></li>
+                    <li><a href="/watchlist/reviews">Watched List</a></li>
+                    <li><a href="/auth/logout">Logout</a></li>
                 <%}%>
-                <h3>WN</h3>
+              </ul>
+            </div>
+            
         </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <% if (!currentUser){%>
+                <li><a href="/">Home</a></li>
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/signup">Sign Up</a></li>
+            <% }else{ %> 
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/watchlist">Watch List</a></li>
+                <li><a href="/watchlist/reviews">Watched List</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            <%}%>
+        </ul>
     </header>
     <main>
         <div class="views">
             <%- body %>
         </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
 </body>
 </html>

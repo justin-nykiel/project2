@@ -1,41 +1,50 @@
 <h2>Edit Your Review:</h2>
 <% let checked = "" %>
-<% if(show.reviews[0].bingeworthy){%>
-   <%  checked = "true" %>
+<% if(review.dataValues.bingeworthy){%>
+   <%  checked = "checked" %>
 <%}else{%>
-     <% checked = "false" %>
+     <% checked = "" %>
   <%  } %>
-<ul>
-    
-        <div class="showEdit">
-            <li><%= show.title%></li>
-            <img src=<%=show.img%> alt=<%=show.title%>>
-            
-            <form action="/watchlist/review/<%=show.reviews[0].id%>/?_method=PUT" method="POST">
-                <input type="hidden" name="title" value='<%= show.title%>'>
-                <div class="form-group">
-                <label for="rating">Rating</label>
-                <input type="number" class="form-control" id="rating" name="rating" value=<%=show.reviews[0].rating%> min="1" max="10">
-                </div>
-            
-                <div class="form-group">
-                <label for="bingeWorthy">Binge Worthy?</label>
-                <input type="checkbox" class="form-control" id="bingeWorthy" name="bingeWorthy" checked=<%=checked%>>
-                </div>
-            
-                <div class="form-group">
-                <label for="review">Review It</label>
-                <textarea type="text" class="form-control" id="review" name="review" ><%=show.reviews[0].review%></textarea>
-                </div>
+  <% show.title = show.title.replace(/&#39;/g, "'")%>
+
+        <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src=<%=show.img%> alt=<%=show.title%>>
+                <span class="card-title"><%= show.title%></span>
+              </div>
+              <div class="card-content">
+                <form action="/watchlist/review/<%=review.dataValues.id%>/?_method=PUT" method="POST">
+                    <input type="hidden" name="title" value='<%= show.title%>'>
+                    <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="number" class="form-control" id="rating" name="rating" value=<%=review.dataValues.rating%> min="1" max="10">
+                    </div>
                 
-                <input type="submit" class="btn btn-primary" value="Edit Review">
-            </form>
-
-
-            <form action="/watchlist/review/<%= show.reviews[0].id%>/?_method=DELETE" method="POST">
-                <input type="hidden" name="title" value='<%= show.title%>'>
-
-                <input type="submit" class="btn btn-primary" value="Delete Review">
-            </form>
+                    <p>
+                        <label for="bingeWorthy">
+                            <input type="checkbox" id="bingeWorthy" name="bingeWorthy" class="bingeWorthy" <%=checked%> />
+                            <span>Binge Worthy</span>
+                        </label>
+                    </p>
+                
+                    <div class="form-group">
+                    <label for="review">Review It</label>
+                    <textarea type="text" class="form-control" id="review" name="review" ><%=review.dataValues.review%></textarea>
+                    </div>
+                    
+                    <input type="submit" class="btn btn-primary reviewButton" value="Edit Review">
+                </form>
+    
+    
+                <form action="/watchlist/review/<%= review.dataValues.id%>/?_method=DELETE" method="POST">
+                    <input type="hidden" name="title" value='<%= show.title%>'>
+    
+                    <input type="submit" class="btn btn-primary reviewButton" value="Delete Review">
+                </form>
+              </div>
+              
+            </div>
+          </div>
         </div>
-</ul>

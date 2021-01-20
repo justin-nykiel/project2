@@ -1,24 +1,34 @@
 <h2>Your Watched And Reviewed List:</h2>
-<ul class="listOfShows">
+<div class="row">
     <%for(eachReview of review){%>
-        <div class="show">
-            <li><%= eachReview.show.title%></li>
-            <img src=<%=eachReview.show.img%> alt=<%=eachReview.show.title%>>
-            
-            <ul>
-                <li>Your Rating: <%= eachReview.rating%></li>
-                <% if(eachReview.bingeworthy){%>
-                    <li class="binge">BingeWorthy: &#128525;</li>
-                <%}else{%>
-                    <li class="binge">BingeWorthy: Meh</li>
-                <%}%>
-                <li>Review: <%= eachReview.review%></li>
-                <!-- nextflix user reviews -->
-            </ul>
-            <form action="/watchlist/review/edit/<%= eachReview.id%>" method="GET">
-                <input type="hidden" name="title" value='<%= eachReview.show.title%>'>
-                <input type="submit" value="Edit/Remove Review">
-            </form>
-        </div>
+       
+        <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src=<%=eachReview.show.img%> alt=<%=eachReview.show.title%>>
+                <span class="card-title"><%= eachReview.show.title%></span>
+              </div>
+              <div class="card-content">
+                <ul>
+                    <li>Your Rating: <%= eachReview.rating%></li>
+                    <% if(eachReview.bingeworthy){%>
+                        <li class="binge">BingeWorthy: &#128525;</li>
+                    <%}else{%>
+                        <li class="binge">BingeWorthy: Meh</li>
+                    <%}%>
+                    <li>Review: <%= eachReview.review%></li>
+                    <!-- nextflix user reviews -->
+                </ul>
+                <form action="/watchlist/review/edit/<%= eachReview.id%>" method="GET">
+                    <input type="hidden" name="title" value='<%= eachReview.show.title%>'>
+                    <input type="submit" value="Edit/Remove Review">
+                </form>
+    
+    
+                
+              </div>
+              
+            </div>
+          </div>
     <%}%>
-</ul>
+    </div>

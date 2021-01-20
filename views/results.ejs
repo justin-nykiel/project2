@@ -6,19 +6,20 @@
             <% thing.synopsis = thing.synopsis.replace(/&#39;/g, "'")%>
             <% let keys = Object.keys(thing)%>
             <% let values = Object.values(thing)%>
-            <!-- <form action="/watchlist/new" method="POST">
-                <%for(let i = 0; i < keys.length; i++){%>
-                    <input type="hidden" name=<%=keys[i]%> value='<%=values[i]%>'>
-                <%}%>
-                <input type="submit" value="Watchlist it">
-            </form> -->
+            
 
             <div class="col s12 m6">
               <div class="card">
                 <div class="card-image">
                   <img src=<%=thing.img%> alt=<%=thing.title%>>
                   <span class="card-title"><%= thing.title%></span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+                  <form action="/watchlist/new" method="POST" id="watchlistIt">
+                    <%for(let i = 0; i < keys.length; i++){%>
+                        <input type="hidden" name=<%=keys[i]%> value='<%=values[i]%>'>
+                    <%}%>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red" onclick="document.getElementById('watchlistIt').submit();"><i class="material-icons">add</i></a>
+                </form>
+                  
                 </div>
                 <div class="card-content">
                   <p><%= thing.synopsis%></p>

@@ -1,6 +1,6 @@
 <h2>Review this Content:</h2>
 
-<div class="showEdit">
+<!-- <div class="showEdit">
   <p><%= showToBeReviewed.title%></p>
           <img src=<%=showToBeReviewed.img%> alt=<%=showToBeReviewed.title%>>
           <p><%= showToBeReviewed.synopsis%></p>
@@ -29,4 +29,40 @@
     
     <input type="submit" class="btn btn-primary">
   </form>
-</div>
+</div> -->
+<% show.title = thing.title.replace(/&#39;/g, "'")%>
+
+        <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src=<%=showToBeReviewed.img%> alt=<%=showToBeReviewed.title%>>
+                <span class="card-title"><%= showToBeReviewed.title%></span>
+              </div>
+              <div class="card-content">
+                <form action="/watchlist/reviews/new" method="POST">
+                    <input type="hidden" name="title" value='<%= showToBeReviewed.title%>'>
+                    <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="number" class="form-control" id="rating" name="rating" min="1" max="10">
+                    </div>
+                
+                    <p>
+                      <label for="bingeWorthy">
+                          <input type="checkbox" id="bingeWorthy" name="bingeWorthy" class="bingeWorthy" />
+                          <span>Binge Worthy</span>
+                      </label>
+                    </p>
+                
+                    <div class="form-group">
+                    <label for="review">Review It</label>
+                    <textarea type="text" class="form-control" id="review" name="review" ></textarea>
+                    </div>
+                    
+                    <input type="submit" class="btn btn-primary reviewButton" value="New Review">
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>

@@ -4,11 +4,8 @@ body {
   margin: 0;
 }
 
-nav a{
-  display: block;
-  float: left;
-  text-align: center;
-  padding: 20px;
+.bingeWorthy {
+  opacity: 1;
 }
 
 nav{
@@ -17,7 +14,7 @@ nav{
   width: 100%;
   background-color: black; 
   z-index: 100;
-}
+} 
 header{
   position: relative;
   top: 50px;
@@ -136,9 +133,7 @@ main{
 p{
   padding-bottom: 10px;
 }
-ul {
-  list-style-type: none;
-}
+
 .show, .login{
   border: 1px solid white;
   margin: 5px;
@@ -164,21 +159,12 @@ img{
   flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .show{
     width: 80vw;
   }
-}
-nav h3{
-  position: fixed;
-  top: 0;
-  right: 5px;
-  display: block;
-  float: right;
-  color: #E50916;
-  font-size: 50px;
-  margin: 0;
-}
+} */
+
 .login{
   width: 80vw;
   position: relative;
@@ -209,11 +195,10 @@ label {
 #new-name {
   width: 188px;
 }
-.signUpBtn {
-  display: block;
-}
+
 .description{
   display: inline-block;
+  width: 90vw;
 }
 .views{
   display: flex;
@@ -248,4 +233,8 @@ label {
 .input-field.inline{
   width: 100%;
   min-width: 130px;
+}
+
+.reviewButton{
+  margin: 3px;
 }

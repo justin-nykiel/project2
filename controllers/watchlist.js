@@ -131,20 +131,25 @@ router.get('/reviews', isLoggedIn, (req,res)=>{
 
 //gets the edit review page
 router.get('/review/edit/:id', isLoggedIn, (req,res)=>{
-    
     db.user.findOne({
         where: {id: req.user.dataValues.id}
     })
     .then((user)=>{
         db.show.findOne({
-            include: [db.review],
             where: {
                 title: req.query.title
             }
         })
         .then(show=>{
+            db.review.findOne({
+                where: {
+                    id: req.params.id
+                }
+            }).then((review)=>{
+                res.render('./watchlist/editReview', {show, review })
+            })
             
-           res.render('./watchlist/editReview', {show })
+           
         })
         
     })
