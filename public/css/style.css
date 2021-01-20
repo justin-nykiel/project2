@@ -238,3 +238,13 @@ label {
 .reviewButton{
   margin: 3px;
 }
+/* label focus color */
+.input-field input:focus + label {
+  color: black !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid black !important;
+  box-shadow: 0 1px 0 0 black !important;
+ }

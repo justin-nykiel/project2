@@ -93,18 +93,18 @@ if(document.querySelector('#genreInput')){
         };
     
     
-        // axios.request(options)
-        // .then(function (response) {
-        //     let genres = []
-        //     response.data.results.forEach(genre =>{
-        //         if(!genre.genre.includes("\\")){
-        //             genres.push(genre.genre)
-        //         }
-        //     })
-        //     autocomplete(document.getElementById("genreInput"), genres)
-        // }).catch(function (error) {
-        //     console.error(error);
-        // })
+        axios.request(options)
+        .then(function (response) {
+            let genres = []
+            response.data.results.forEach(genre =>{
+                if(!genre.genre.includes("\\")){
+                    genres.push(genre.genre)
+                }
+            })
+            autocomplete(document.getElementById("genreInput"), genres)
+        }).catch(function (error) {
+            console.error(error);
+        })
 }
 
 let binge = document.querySelectorAll(".binge")
