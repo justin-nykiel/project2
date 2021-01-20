@@ -26,7 +26,7 @@ router.post('/signup', (req,res)=>{
                 successFlash: 'Account successfully created and logged in'
             })(req,res) //IIFE = immediately invoked function
         } else {
-            req.flash('error', 'email has already been used to create an account, try logging in')
+            req.flash('error', 'That email has already been used to create an account, try logging in')
             res.redirect('/auth/login')
         }
         //res.redirect('/auth/login')
@@ -49,8 +49,8 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', (req,res)=>{
     req.logout()
-    req.flash('success', 'successfully logged out')
-    res.redirect('/')
+    req.flash('success', 'Successfully logged out')
+    res.redirect('/auth/login')
 })
 
 
