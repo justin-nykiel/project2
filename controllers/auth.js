@@ -52,6 +52,13 @@ router.get('/logout', (req,res)=>{
     req.flash('success', 'Successfully logged out')
     res.redirect('/auth/login')
 })
+router.delete('/profile/:email/', (req, res)=>{
+    db.user.destroy({
+        where: {email:req.params.email}
+    }).then(()=>{
+        res.redirect('/')
+    })
+})
 
 
 module.exports = router

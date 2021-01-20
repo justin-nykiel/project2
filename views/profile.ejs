@@ -1,7 +1,7 @@
 <h2>Name: <%= currentUser.name %></h2>
 <h2>Email: <%= currentUser.email %></h2>
 <div class='delete'>
-    <form action="/profile/?_method=DELETE" method="POST">
+    <form action="auth/profile/<%= currentUser.email%>/?_method=DELETE" method="POST"> 
         <input type="submit" class="btn btn-primary" value="Delete Account">
     </form>
 </div>
