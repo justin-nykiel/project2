@@ -9,7 +9,7 @@ const methodOverride = require('method-override')
 
 //path when something is added too watched list
 router.post('/new', isLoggedIn, (req,res)=>{
-    console.log(req.user.dataValues.id)
+    
     db.user.findOne({
         where: {id: req.user.dataValues.id}
     })
