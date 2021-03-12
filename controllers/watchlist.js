@@ -50,11 +50,10 @@ router.get('/', (req,res)=>{
                     unwatched.push(show)
                 } else {
                     for(let i = 0; i < show.reviews.length; i++){
-                        let counter = 0
-                        if(show.reviews[i].userId != user.id){
-                            counter++
+                        if(show.reviews[i].userId == user.id){
+                            break
                         } 
-                        if(counter == show.reviews.length){
+                        if(show.reviews[i].userId != user.id && i == show.reviews.length -1){
                             unwatched.push(show)
                         }
                     }

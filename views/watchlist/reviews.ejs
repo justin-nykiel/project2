@@ -1,5 +1,8 @@
-<h2>Your Watched And Reviewed List:</h2>
+<h2 class="list-titles">Your Watched And Reviewed List</h2>
 <div class="row">
+  <%if(review.length == 0){%>
+    <div class="noShows">You haven't reviewed any shows yet!</div>
+  <%}%>
     <%for(eachReview of review){%>
        
         <div class="col s12 m6">

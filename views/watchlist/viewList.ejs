@@ -1,38 +1,41 @@
-<h2>Your Content To Watch List:</h2>
+<h2 class="list-titles">Your Content To Watch List</h2>
 <div class="row">
+    <%if(results.length == 0){%>
+      <div class="noShows">No shows have been added to your watchlist!</div>
+    <%}%>
     <%for(thing of results){%>
         
             <% thing.title = thing.title.replace(/&#39;/g, "'")%>
             <% thing.synopsis = thing.synopsis.replace(/&#39;/g, "'")%>
-           
-        <div class="col s12 m6">
-            <div class="card">
-              <div class="card-image">
-                <img src=<%=thing.img%> alt=<%=thing.title%>>
-                <span class="card-title"><%= thing.title%></span>
-              </div>
-              <div class="card-content">
-                <p><%= thing.synopsis%></p>
-                <ul>
-                  <li>Type: <%= thing.vtype%></li>
-                  <li>Year: <%= thing.year%></li>
-                  <% if(!thing.imdbrating){%>
-                      <% thing.imdbrating = "No Rating Available" %>
-              <%  } %>
-                  <li>IMDB Rating: <%= thing.imdbrating%></li>
-              
-                  </ul>
-              </div>
-              
-                <div class="card-action">
-                    <form action="/watchlist/review/<%= thing.id%>" method="GET">
-                        <input class="reviewButton" type="submit" value="Review it">
-                    </form>
-                    <form action="/watchlist/<%= thing.id%>/?_method=DELETE" method="POST">
-                        <input class="reviewButton" type="submit" value="Delete From Watchlist">
-                    </form>
+          <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img src=<%=thing.img%> alt=<%=thing.title%>>
+                  <span class="card-title"><%= thing.title%></span>
                 </div>
+                <div class="card-content">
+                  <p><%= thing.synopsis%></p>
+                  <ul>
+                    <li>Type: <%= thing.vtype%></li>
+                    <li>Year: <%= thing.year%></li>
+                    <% if(!thing.imdbrating){%>
+                        <% thing.imdbrating = "No Rating Available" %>
+                <%  } %>
+                    <li>IMDB Rating: <%= thing.imdbrating%></li>
+                
+                    </ul>
+                </div>
+                
+                  <div class="card-action">
+                      <form action="/watchlist/review/<%= thing.id%>" method="GET">
+                          <input class="reviewButton" type="submit" value="Review it">
+                      </form>
+                      <form action="/watchlist/<%= thing.id%>/?_method=DELETE" method="POST">
+                          <input class="reviewButton" type="submit" value="Delete From Watchlist">
+                      </form>
+                  </div>
+              </div>
             </div>
-          </div>
+          
     <%}%>
 </div>
